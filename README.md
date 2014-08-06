@@ -36,9 +36,9 @@ Install
   
   git clone https://github.com/ysokcs/Sublime-Like-Vim
   
-  cp ~/Sublime-Like-Vim/c.vim your/vim/path/c.vim
+  cp c.vim your/vim/path/c.vim
   
-  cp ~/Sublime-Like-Vim/Sublime-Like-Vim.vim ~/.vim/colors
+  cp Sublime-Like-Vim.vim ~/.vim/colors
   
 
 4. Write this at the bottom of your ~/.vimrc file:
