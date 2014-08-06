@@ -1,8 +1,7 @@
 Sublime-Like-Vim
 ================
 
-This repository makes sublime-text-like Vim environment for Ubuntu based on refined monokai colorscheme.
-Please help to develop this repository.
+This repository makes sublime-text-like Vim environment for Ubuntu based on refined monokai colorscheme.  Please help to develop this repository.
 
 
 Install
