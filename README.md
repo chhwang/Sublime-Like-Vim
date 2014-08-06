@@ -10,7 +10,9 @@ Install
 ================
 
 1. I recommand you to use YouCompleteMe.
+  
   Link to YouCompleteMe repository : https://github.com/Valloric/YouCompleteMe
+
   This link clearly explains how to install : http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/
   
   If you are going to install YouCompleteMe, you may have to change your Vim install path to compile Vim
