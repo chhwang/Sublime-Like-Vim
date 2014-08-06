@@ -16,9 +16,7 @@ Install
   Link to YouCompleteMe repository : https://github.com/Valloric/YouCompleteMe
 
   This link clearly explains how to install : http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/
-  
-  If you are going to install YouCompleteMe, you may have to change your Vim install path to compile Vim
-  with Python2.x support, so move to next step after checking successful installation of YouCompleteMe.
+
 
 
 2. I recommand you to use Ctags. To install Ctags:
@@ -26,9 +24,7 @@ Install
   sudo apt-get install ctags
   
   
-3. Execute Vim on your terminal and check your Vim install path by typing :echo $VIMRUNTIME.
-
-  Then on the terminal:
+3. On the terminal:
   
   mkdir ~/Sublime-Like-Vim
   
@@ -38,7 +34,7 @@ Install
   
   git clone https://github.com/ysokcs/Sublime-Like-Vim
   
-  cp c.vim your/vim/path/c.vim
+  cp c.vim ~/.vim/syntax/c.vim
   
   cp Sublime-Like-Vim.vim ~/.vim/colors
   
