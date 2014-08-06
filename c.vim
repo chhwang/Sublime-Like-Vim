@@ -465,13 +465,13 @@ unlet s:cpo_save
 
 " Highlight Class and Function names
 syn match    cCustomParen    "?=(" contains=cParen,cCppParen
-syn match    cCustomFunc  "\w\+\s*(\@=" contains=cCustomParen     " function call
-syn match    cCustomScope    "::"
-syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope    " class
+syn match    cCustomFunc  "\w\+\s*(\@=" contains=cCustomParen           " function call
+syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope          " class
 syn match    etcRed          "\(\s*\(namespace\)\s\+\)\(\w\+\s*\n*\s*{\)\@="  " namespace
-syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\)\s+\)"  " return;
-syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(break\);\@=\)"  " break;
-syn match    etcRed          "\(;\)\@<=\(\s\+\(break\);\@=\)"     " break;
+syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\);\@=\)"       " return something;
+syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\)\s\+\)"       " return;
+syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(break\);\@=\)"        " break;
+syn match    etcRed          "\(;\)\@<=\(\s\+\(break\);\@=\)"           " break;
 
 hi def link cCustomFunc  Function
 hi def link cCustomClass Function
