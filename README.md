@@ -26,14 +26,16 @@ Install
   
 3. On the terminal:
   
-  mkdir ~/Sublime-Like-Vim
+  mkdir ~/SLV
   
-  cd ~/Sublime-Like-Vim/
+  cd ~/SLV/
   
   git init
   
   git clone https://github.com/ysokcs/Sublime-Like-Vim
   
+  cd Sublime-Like-Vim
+
   cp c.vim ~/.vim/syntax/c.vim
   
   cp Sublime-Like-Vim.vim ~/.vim/colors
