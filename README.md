@@ -36,9 +36,13 @@ Install
   
   cd Sublime-Like-Vim
 
+  mkdir ~/.vim/syntax
+  
+  mkdir ~/.vim/colors
+
   cp c.vim ~/.vim/syntax/c.vim
   
-  cp Sublime-Like-Vim.vim ~/.vim/colors
+  cp Sublime-Like-Vim.vim ~/.vim/colors/Sublime-Like-Vim.vim
   
 
 4. Write this at the bottom of your ~/.vimrc file:
