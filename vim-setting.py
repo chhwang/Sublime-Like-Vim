@@ -22,10 +22,7 @@ os.system('cp ./Sublime-Like-Vim/Sublime-Like-Vim-master/Sublime-Like-Vim.vim ~/
 os.system('rm -r -f ./Sublime-Like-Vim')
 
 opt = []
-opt.append('set ts=4')
-opt.append('set sw=4')
 opt.append('set mouse=a')
-opt.append('set expandtab')
 opt.append('set nu')
 opt.append('set ai')
 opt.append('syntax enable')
