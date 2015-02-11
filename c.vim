@@ -337,36 +337,36 @@ if !exists("c_no_c99") " ISO C99
 endif
 
 " Accept %: for # (C99)
-syn region	cPreCondit	start="^\s*\(%:\|#\)\s*\(if\|ifdef\|ifndef\|elif\)\>" skip="\\$" end="$" keepend contains=cComment,cCommentL,cCppString,cCharacter,cCppParen,cParenError,cNumbers,cCommentError,cSpaceError
-syn match	cPreConditMatch	display "^\s*\(%:\|#\)\s*\(else\|endif\)\>"
+syn region	cPreCondit	start="\(^\s*\(%:\|#\)\s*\)\@<=\(\(if\|ifdef\|ifndef\|elif\)\>\)" skip="\\$" end="\s" keepend contains=cComment,cCommentL,cCppString,cCharacter,cCppParen,cParenError,cNumbers,cCommentError,cSpaceError
+syn match	cPreConditMatch	display "\(^\s*\(%:\|#\)\s*\)\@<=\(\(else\|endif\)\>\)"
 if !exists("c_no_if0")
   syn cluster	cCppOutInGroup	contains=cCppInIf,cCppInElse,cCppInElse2,cCppOutIf,cCppOutIf2,cCppOutElse,cCppInSkip,cCppOutSkip
-  syn region	cCppOutWrapper	start="^\s*\(%:\|#\)\s*if\s\+0\+\s*\($\|//\|/\*\|&\)" end=".\@=\|$" contains=cCppOutIf,cCppOutElse,@NoSpell fold
-  syn region	cCppOutIf	contained start="0\+" matchgroup=cCppOutWrapper end="^\s*\(%:\|#\)\s*endif\>" contains=cCppOutIf2,cCppOutElse
+  syn region	cCppOutWrapper	start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\s\+0\+\s*\($\|//\|/\*\|&\)\)" end=".\@=\|$" contains=cCppOutIf,cCppOutElse,@NoSpell fold
+  syn region	cCppOutIf	contained start="0\+" matchgroup=cCppOutWrapper end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=cCppOutIf2,cCppOutElse
   if !exists("c_no_if0_fold")
-    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="^\s*\(%:\|#\)\s*\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell fold
+    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell fold
   else
-    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="^\s*\(%:\|#\)\s*\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
+    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
   endif
-  syn region	cCppOutElse	contained matchgroup=cCppOutWrapper start="^\s*\(%:\|#\)\s*\(else\|elif\)" end="^\s*\(%:\|#\)\s*endif\>"me=s-1 contains=TOP,cPreCondit
-  syn region	cCppInWrapper	start="^\s*\(%:\|#\)\s*if\s\+0*[1-9]\d*\s*\($\|//\|/\*\||\)" end=".\@=\|$" contains=cCppInIf,cCppInElse fold
-  syn region	cCppInIf	contained matchgroup=cCppInWrapper start="\d\+" end="^\s*\(%:\|#\)\s*endif\>" contains=TOP,cPreCondit
+  syn region	cCppOutElse	contained matchgroup=cCppOutWrapper start="\(^\s*\(%:\|#\)\s*\)\@<=\(else\|elif\)" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)"me=s-1 contains=TOP,cPreCondit
+  syn region	cCppInWrapper	start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\s\+0*[1-9]\d*\s*\($\|//\|/\*\||\)\)" end=".\@=\|$" contains=cCppInIf,cCppInElse fold
+  syn region	cCppInIf	contained matchgroup=cCppInWrapper start="\d\+" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=TOP,cPreCondit
   if !exists("c_no_if0_fold")
-    syn region	cCppInElse	contained start="^\s*\(%:\|#\)\s*\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2 fold
+    syn region	cCppInElse	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2 fold
   else
-    syn region	cCppInElse	contained start="^\s*\(%:\|#\)\s*\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2
+    syn region	cCppInElse	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2
   endif
-  syn region	cCppInElse2	contained matchgroup=cCppInWrapper start="^\s*\(%:\|#\)\s*\(else\|elif\)\([^/]\|/[^/*]\)*" end="^\s*\(%:\|#\)\s*endif\>"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
-  syn region	cCppOutSkip	contained start="^\s*\(%:\|#\)\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" contains=cSpaceError,cCppOutSkip
-  syn region	cCppInSkip	contained matchgroup=cCppInWrapper start="^\s*\(%:\|#\)\s*\(if\s\+\(\d\+\s*\($\|//\|/\*\||\|&\)\)\@!\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" containedin=cCppOutElse,cCppInIf,cCppInSkip contains=TOP,cPreProc
+  syn region	cCppInElse2	contained matchgroup=cCppInWrapper start="\(^\s*\(%:\|#\)\s*\)\@<=\(\(else\|elif\)\([^/]\|/[^/*]\)*\)" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
+  syn region	cCppOutSkip	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=cSpaceError,cCppOutSkip
+  syn region	cCppInSkip	contained matchgroup=cCppInWrapper start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\s\+\(\d\+\s*\($\|//\|/\*\||\|&\)\)\@!\|ifdef\>\|ifndef\>\)" skip="\\$" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" containedin=cCppOutElse,cCppInIf,cCppInSkip contains=TOP,cPreProc
 endif
 syn region	cIncluded	display contained start=+"+ skip=+\\\\\|\\"+ end=+"+
 syn match	cIncluded	display contained "<[^>]*>"
-syn match	cInclude	display "^\s*\(%:\|#\)\s*include\>\s*["<]" contains=cIncluded
+syn match	cInclude	display "\(^\s*\(%:\|#\)\s*\)\@<=\(include\>\s*["<]\)" contains=cIncluded
 "syn match cLineSkip	"\\$"
 syn cluster	cPreProcGroup	contains=cPreCondit,cIncluded,cInclude,cDefine,cErrInParen,cErrInBracket,cUserLabel,cSpecial,cOctalZero,cCppOutWrapper,cCppInWrapper,@cCppOutInGroup,cFormat,cNumber,cFloat,cOctal,cOctalError,cNumbersCom,cString,cCommentSkip,cCommentString,cComment2String,@cCommentGroup,cCommentStartError,cParen,cBracket,cMulti,cBadBlock
-syn region	cDefine		start="^\s*\(%:\|#\)\s*\(define\|undef\)\>" skip="\\$" end="$" keepend contains=ALLBUT,@cPreProcGroup,@Spell
-syn region	cPreProc	start="^\s*\(%:\|#\)\s*\(pragma\>\|line\>\|warning\>\|warn\>\|error\>\)" skip="\\$" end="$" keepend contains=ALLBUT,@cPreProcGroup,@Spell
+syn region	cDefine		start="\(^\s*\(%:\|#\)\s*\)\@<=\(\(define\|undef\)\>\)" skip="\\$" end="\s" keepend contains=ALLBUT,@cPreProcGroup,@Spell
+syn region	cPreProc	start="\(^\s*\(%:\|#\)\s*\)\@<=\(pragma\>\|line\>\|warning\>\|warn\>\|error\>\)" skip="\\$" end="\s" keepend contains=ALLBUT,@cPreProcGroup,@Spell
 
 " Highlight User Labels
 syn cluster	cMultiGroup	contains=cIncluded,cSpecial,cCommentSkip,cCommentString,cComment2String,@cCommentGroup,cCommentStartError,cUserCont,cUserLabel,cBitField,cOctalZero,cCppOutWrapper,cCppInWrapper,@cCppOutInGroup,cFormat,cNumber,cFloat,cOctal,cOctalError,cNumbersCom,cCppParen,cCppBracket,cCppString
@@ -464,9 +464,16 @@ unlet s:cpo_save
 " vim: ts=8
 
 " Highlight Class and Function names
-syn match    cCustomParen    "?=(" contains=cParen,cCppParen
-syn match    cCustomFunc  "\w\+\s*(\@=" contains=cCustomParen           " function call
-syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope          " class
+syn match cCustomParen    "?=(" contains=cParen,cCppParen
+syn match cCustomClass    "\w\+\s*::" contains=cCustomScope						   " class
+syn match cCustomFuncCall "\(\(\W\_s\+\)\|\S\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen	" function call
+syn match cCustomFuncDef  "\(\w\_s\+\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen " function definition or declaration
+
+" Defined Macro
+syn match cCustomMacro "\(^\s*\(%:\|#\)\s*\(define\)\_s\+\)\@<=\(\h\w*\>\)" "\@<=\(\_s\+\<\h\w*\>)
+
+" exceptions.
+" TODO: exceptions are not good for highlighting speed. Need to replace using another way if possible.
 syn match    etcRed          "\(\s*\(namespace\)\s\+\)\(\w\+\s*\n*\s*{\)\@="  " namespace
 syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\);\@=\)"       " return something;
 syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\)\s\+\)"       " return;

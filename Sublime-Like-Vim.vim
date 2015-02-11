@@ -65,7 +65,8 @@ hi PreProc ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi Include ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi Define ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi Macro ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
-hi PreCondit guifg=#FD971F ctermfg=208 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi PreCondit ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
+"hi PreCondit guifg=#FD971F ctermfg=208 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Type guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StorageClass ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi Structure guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -89,7 +90,8 @@ hi pythonParameters guifg=#FD971F ctermfg=208 guibg=NONE ctermbg=NONE gui=NONE c
 hi pythonVars guifg=#FD971F ctermfg=208 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 
-hi cCustomFunc  guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi cCustomClass ctermfg=81 cterm=NONE ctermfg=Green ctermbg=NONE gui=NONE guifg=#80a0ff guibg=NONE
+hi cCustomFuncCall  guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi cCustomFuncDef ctermfg=81 cterm=NONE ctermfg=Green ctermbg=NONE gui=NONE guifg=#80a0ff guibg=NONE
+hi cCustomMacro ctermfg=81 cterm=NONE ctermfg=Green ctermbg=NONE gui=NONE guifg=#80a0ff guibg=NONE
+hi cCustomClass ctermfg=81 cterm=NONE ctermfg=Green ctermbg=NONE gui=NONE guifg=#80a0ff guibg=NONE
 hi etcRed ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
