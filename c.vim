@@ -59,7 +59,7 @@ else
   syn region	cCppString	start=+L\="+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end='$' contains=cSpecial,cFormat,@Spell
 endif
 
-syn region	cCppSkip	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=cSpaceError,cCppSkip
+syn region	cCppSkip	contained start="^\s*\(%:\|#\)\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" contains=cSpaceError,cCppSkip
 
 syn cluster	cStringGroup	contains=cCppString,cCppSkip
 
@@ -345,26 +345,26 @@ if !exists("c_no_c99") " ISO C99
 endif
 
 " Accept %: for # (C99)
-syn region	cPreCondit	start="\(^\s*\(%:\|#\)\s*\)\@<=\(\(if\|ifdef\|ifndef\|elif\)\>\)" skip="\\$" end="\s" keepend contains=cComment,cCommentL,cCppString,cCharacter,cCppParen,cParenError,cNumbers,cCommentError,cSpaceError
+syn region	cPreCondit	start="\(^\s*\(%:\|#\)\s*\)\@<=\(\(if\|ifdef\|ifndef\|elif\)\>\)" skip="\\$" end="\_s" keepend contains=cComment,cCommentL,cCppString,cCharacter,cCppParen,cParenError,cNumbers,cCommentError,cSpaceError
 syn match	cPreConditMatch	display "\(^\s*\(%:\|#\)\s*\)\@<=\(\(else\|endif\)\>\)"
 if !exists("c_no_if0")
   syn cluster	cCppOutInGroup	contains=cCppInIf,cCppInElse,cCppInElse2,cCppOutIf,cCppOutIf2,cCppOutElse,cCppInSkip,cCppOutSkip
-  syn region	cCppOutWrapper	start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\s\+0\+\s*\($\|//\|/\*\|&\)\)" end=".\@=\|$" contains=cCppOutIf,cCppOutElse,@NoSpell fold
+  syn region	cCppOutWrapper	start="\(^\s*\)\@<=\(%:\|#\)\s*if\s\+0\+\s*\($\|//\|/\*\|&\)"hs=s+1 end=".\@=\|$" contains=cCppOutIf,cCppOutElse,@NoSpell fold
   syn region	cCppOutIf	contained start="0\+" matchgroup=cCppOutWrapper end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=cCppOutIf2,cCppOutElse
   if !exists("c_no_if0_fold")
-    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell fold
+    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="^\s*\(%:\|#\)\s*\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell fold
   else
-    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
+    syn region	cCppOutIf2	contained matchgroup=cCppOutWrapper start="0\+" end="^\s*\(%:\|#\)\s*\(else\>\|elif\s\+\(0\+\s*\($\|//\|/\*\|&\)\)\@!\|endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
   endif
   syn region	cCppOutElse	contained matchgroup=cCppOutWrapper start="\(^\s*\(%:\|#\)\s*\)\@<=\(else\|elif\)" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)"me=s-1 contains=TOP,cPreCondit
-  syn region	cCppInWrapper	start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\s\+0*[1-9]\d*\s*\($\|//\|/\*\||\)\)" end=".\@=\|$" contains=cCppInIf,cCppInElse fold
+  syn region	cCppInWrapper	start="\(^\s*\)\@<=\(%:\|#\)\s*if\s\+0*[1-9]\d*\s*\($\|//\|/\*\||\)"hs=s+1 end=".\@=\|$" contains=cCppInIf,cCppInElse fold
   syn region	cCppInIf	contained matchgroup=cCppInWrapper start="\d\+" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=TOP,cPreCondit
   if !exists("c_no_if0_fold")
-    syn region	cCppInElse	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2 fold
+    syn region	cCppInElse	contained start="\(^\s*\)\@<=\(%:\|#\)\s*\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2 fold
   else
-    syn region	cCppInElse	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2
+    syn region	cCppInElse	contained start="\(^\s*\)\@<=\(%:\|#\)\s*\(else\>\|elif\s\+\(0*[1-9]\d*\s*\($\|//\|/\*\||\)\)\@!\)" end=".\@=\|$" containedin=cCppInIf contains=cCppInElse2
   endif
-  syn region	cCppInElse2	contained matchgroup=cCppInWrapper start="\(^\s*\(%:\|#\)\s*\)\@<=\(\(else\|elif\)\([^/]\|/[^/*]\)*\)" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
+  syn region	cCppInElse2	contained matchgroup=cCppInWrapper start="\(^\s*\)\@<=\(%:\|#\)\s*\(\(else\|elif\)\([^/]\|/[^/*]\)*\)"hs=s+1 end="^\s*\(%:\|#\)\s*endif\>"me=s-1 contains=cSpaceError,cCppOutSkip,@Spell
   syn region	cCppOutSkip	contained start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" contains=cSpaceError,cCppOutSkip
   syn region	cCppInSkip	contained matchgroup=cCppInWrapper start="\(^\s*\(%:\|#\)\s*\)\@<=\(if\s\+\(\d\+\s*\($\|//\|/\*\||\|&\)\)\@!\|ifdef\>\|ifndef\>\)" skip="\\$" end="\(^\s*\(%:\|#\)\s*\)\@<=\(endif\>\)" containedin=cCppOutElse,cCppInIf,cCppInSkip contains=TOP,cPreProc
 endif
