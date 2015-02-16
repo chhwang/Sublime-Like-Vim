@@ -9,10 +9,6 @@ Current version only supports C/C++ - it's the same as monokai in other language
 
 Please help to develop this repository.
 
-Outstanding Releases
-===============
-2015-02-11   Big improvement in coloring preprocessors and functions. (cc193f4)
-
 Install
 ================
 1. Download this repository and execute vim-setting.py, then it's all done.
