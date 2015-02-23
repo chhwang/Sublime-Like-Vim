@@ -487,8 +487,8 @@ syn match cCustomMacro "\(^\s*\(%:\|#\)\s*\(define\)\_s\+\)\@<=\(\h\w*\>\)"
 " exceptions.
 " TODO: exceptions are not good for highlighting speed. Need to replace using another way if possible.
 syn match    etcRed          "\(\s*\(namespace\)\s\+\)\(\w\+\s*\n*\s*{\)\@="  " namespace
-syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\);\@=\)"       " return something;
-syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\)\s\+\)"       " return;
+syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\);\@=\)"       " return;
+syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\)\s\+\)"       " return something;
 syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(break\);\@=\)"        " break;
 syn match    etcRed          "\(;\)\@<=\(\s\+\(break\);\@=\)"           " break;
 

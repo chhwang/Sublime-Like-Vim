@@ -53,7 +53,8 @@ hi Number guifg=#AE81FF ctermfg=141 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Boolean guifg=#AE81FF ctermfg=141 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Float guifg=#AE81FF ctermfg=141 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Identifier guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Statement guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Statement guifg=#F92672 ctermfg=197 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi Statement guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Conditional guifg=#F92672 ctermfg=197 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Repeat guifg=#F92672 ctermfg=197 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Label guifg=#F92672 ctermfg=197 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
