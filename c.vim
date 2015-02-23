@@ -472,14 +472,17 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 " vim: ts=8
 
+" Shows more accurate highlighting when jumping code using ]] shortcut.
+syntax sync minlines=200
+
 " Highlight Class and Function names
-syn match cCustomParen    "?=(" contains=cParen,cCppParen
-syn match cCustomClass    "\w\+\s*::" contains=cCustomScope						   " class
-syn match cCustomFuncCall "\(\(\(\W\|\(^\n\)\)\_s\+\)\|\S\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen	" function call
-syn match cCustomFuncDef  "\(\(\w\_s*\*\+\_s*\)\|\(\w\_s\+\)\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen " function definition or declaration
+syn match	cCustomParen	"?=(" contains=cParen,cCppParen
+syn match	cCustomClass	"\w\+\s*::" contains=cCustomScope		" class
+syn match	cCustomFunc		"\<\h\w*\s*(\@="  contains=cCustomParen	" function call or function def or macro function
+syn match	cCustomFuncCall	"\<\h\w*\s*(\@=" containedin=cBlock contained " only matches function call
 
 " Defined Macro
-syn match cCustomMacro "\(^\s*\(%:\|#\)\s*\(define\)\_s\+\)\@<=\(\h\w*\>\)" "\@<=\(\_s\+\<\h\w*\>)
+syn match cCustomMacro "\(^\s*\(%:\|#\)\s*\(define\)\_s\+\)\@<=\(\h\w*\>\)"
 
 " exceptions.
 " TODO: exceptions are not good for highlighting speed. Need to replace using another way if possible.
@@ -488,7 +491,4 @@ syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\);\@=\)"       " return
 syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(return\)\s\+\)"       " return;
 syn match    etcRed          "\(\w\+\)\@<!\(\s\+\(break\);\@=\)"        " break;
 syn match    etcRed          "\(;\)\@<=\(\s\+\(break\);\@=\)"           " break;
-
-hi def link cCustomFunc  Function
-hi def link cCustomClass Function
 
