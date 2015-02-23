@@ -3,23 +3,19 @@
 import os
 from os.path import expanduser
 
-if not os.path.isdir('./Sublime-Like-Vim'):
-    os.system('mkdir ./Sublime-Like-Vim')
+home = expanduser("~")
 
-if not os.path.isdir('~/.vim'):
+if not os.path.isdir(home + '/.vim'):
     os.system('mkdir ~/.vim')
 
-if not os.path.isdir('~/.vim/colors'):
+if not os.path.isdir(home + '/.vim/colors'):
     os.system('mkdir ~/.vim/colors')
 
-if not os.path.isdir('~/.vim/syntax'):
+if not os.path.isdir(home + '/.vim/syntax'):
     os.system('mkdir ~/.vim/syntax')
 
-os.system('wget -P ./Sublime-Like-Vim https://github.com/ysocks/Sublime-Like-Vim/archive/master.zip')
-os.system('unzip ./Sublime-Like-Vim/master.zip -d ./Sublime-Like-Vim')
-os.system('cp ./Sublime-Like-Vim/Sublime-Like-Vim-master/c.vim ~/.vim/syntax/c.vim')
-os.system('cp ./Sublime-Like-Vim/Sublime-Like-Vim-master/Sublime-Like-Vim.vim ~/.vim/colors/Sublime-Like-Vim.vim')
-os.system('rm -r -f ./Sublime-Like-Vim')
+os.system('cp ./c.vim ~/.vim/syntax/c.vim')
+os.system('cp ./Sublime-Like-Vim.vim ~/.vim/colors/Sublime-Like-Vim.vim')
 
 opt = []
 opt.append('set mouse=a')
@@ -29,15 +25,14 @@ opt.append('syntax enable')
 opt.append('colorscheme Sublime-Like-Vim')
 opt.append('set backspace=indent,eol,start')
 
-if not os.path.isfile('~/.vimrc'):
+if not os.path.isfile(home + '/.vimrc'):
     os.system('>~/.vimrc')
 
-home = expanduser("~")
-
-with open(home+'/.vimrc','r') as f:
+with open(home + '/.vimrc','r') as f:
     vimrc = f.read()
 
 for option in opt:
     if (vimrc.find(option) == -1):
-        os.system('echo "'+option+'" >> ~/.vimrc')
+        os.system('echo "' + option + '" >> ~/.vimrc')
 
+print 'Completed Sublime-Like-Vim install with no error.'
