@@ -475,8 +475,8 @@ unlet s:cpo_save
 " Highlight Class and Function names
 syn match cCustomParen    "?=(" contains=cParen,cCppParen
 syn match cCustomClass    "\w\+\s*::" contains=cCustomScope						   " class
-syn match cCustomFuncCall "\(\(\W\_s\+\)\|\S\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen	" function call
-syn match cCustomFuncDef  "\(\w\_s\+\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen " function definition or declaration
+syn match cCustomFuncCall "\(\(\(\W\|\(^\n\)\)\_s\+\)\|\S\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen	" function call
+syn match cCustomFuncDef  "\(\(\w\_s*\*\+\_s*\)\|\(\w\_s\+\)\)\@<=\(\<\h\w*\s*(\@=\)" contains=cCustomParen " function definition or declaration
 
 " Defined Macro
 syn match cCustomMacro "\(^\s*\(%:\|#\)\s*\(define\)\_s\+\)\@<=\(\h\w*\>\)" "\@<=\(\_s\+\<\h\w*\>)
