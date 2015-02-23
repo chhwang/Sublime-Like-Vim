@@ -20,14 +20,14 @@ Install
   If you have any problem executing vim-setting.py, you can just follow step 4 and 5 to install.
 
 
-2. I recommand you to use YouCompleteMe.
+2. I recommend you to use YouCompleteMe.
   
   Link to YouCompleteMe repository : https://github.com/Valloric/YouCompleteMe
 
   This link clearly explains how to install : http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/
 
 
-3. I recommand you to use Ctags. To install Ctags:
+3. I recommend you to use Ctags. To install Ctags:
 
   sudo apt-get install ctags
   
