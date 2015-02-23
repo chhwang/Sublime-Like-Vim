@@ -11,9 +11,11 @@ Please help to develop this repository.
 
 Install
 ================
-1. Download this repository and execute vim-setting.py, then it's all done.
+1. Download this repository and execute vim-setting.py.
 
-  CAUTION : vim-setting.py code includes 'rm -r -f ./Sublime-Like-Vim'. If you already have a directory named   "Sublime-Like-Vim", don't execute vim-setting.py on that path.
+  If it returned 'Completed Sublime-Like-Vim install with no error.' message, it's all done.
+  
+  You can delete downloaded files after installation.
 
   If you have any problem executing vim-setting.py, you can just follow step 4 and 5 to install.
 
