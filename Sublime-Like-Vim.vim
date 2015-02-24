@@ -81,6 +81,11 @@ hi Underlined guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=UNDERLINE cter
 hi Ignore guifg=#646460 ctermfg=241 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Error guifg=#F8F8F2 ctermfg=255 guibg=#F92672 ctermbg=197 gui=NONE cterm=NONE
 hi Todo guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=UNDERLINE cterm=UNDERLINE
+
+
+hi pythonFunction ctermfg=81 cterm=NONE ctermfg=Green ctermbg=NONE gui=NONE guifg=#80a0ff guibg=NONE
+hi pythonFuncVar guifg=#FD971F ctermfg=208 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi pythonDefinition  guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi pythonBuiltin guifg=#66D9EF ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi pythonClassParameters guifg=#A6E22E ctermfg=148 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi pythonExtraOperator guifg=#F92672 ctermfg=197 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE

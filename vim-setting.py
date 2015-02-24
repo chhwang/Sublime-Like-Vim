@@ -15,6 +15,7 @@ if not os.path.isdir(home + '/.vim/syntax'):
     os.system('mkdir ~/.vim/syntax')
 
 os.system('cp ./c.vim ~/.vim/syntax/c.vim')
+os.system('cp ./python.vim ~/.vim/syntax/python.vim')
 os.system('cp ./Sublime-Like-Vim.vim ~/.vim/colors/Sublime-Like-Vim.vim')
 
 opt = []
