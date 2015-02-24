@@ -5,7 +5,7 @@ This repository makes Sublime-Text-like-Vim environment especially in colorschem
 
 Sublime-Like-Vim is originally based on monokai colorscheme, but looks more similar with Sublime Text than monokai.
 
-Current version only supports C/C++ - it's the same as monokai in other languages.
+Current version supports C/C++ and Python - it's the same as monokai in other languages.
 
 Please help to develop this repository.
 
