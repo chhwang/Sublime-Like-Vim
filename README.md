@@ -1,6 +1,5 @@
 Sublime-Like-Vim
 ================
-
 This repository makes Sublime-Text-like-Vim environment especially in colorscheme.
 
 Sublime-Like-Vim is originally based on monokai colorscheme, but looks more similar with Sublime Text than monokai.
@@ -11,9 +10,9 @@ Please help to develop this repository.
 
 Install
 ================
-1. Download this repository and execute vim-setting.py.
+Download this repository and execute vim-setting.py.
 
-  If it returned 'Completed Sublime-Like-Vim install with no error.' message, it's all done.
+If it returned 'Completed Sublime-Like-Vim install with no error.' message, it's all done.
   
-  You can delete downloaded files after installation.
+You can delete downloaded files after installation.
   
