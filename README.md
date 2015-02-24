@@ -16,15 +16,4 @@ Install
   If it returned 'Completed Sublime-Like-Vim install with no error.' message, it's all done.
   
   You can delete downloaded files after installation.
-
-
-2. I recommend you to use YouCompleteMe.
   
-  Link to YouCompleteMe repository : https://github.com/Valloric/YouCompleteMe
-
-  This link clearly explains how to install : http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/
-
-
-3. I recommend you to use Ctags. To install Ctags:
-
-  sudo apt-get install ctags
