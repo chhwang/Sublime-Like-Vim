@@ -91,8 +91,6 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 syn match   pythonFunction 
 	\ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained
 
-syn region pythonFuncVar start="\w"hs=e+1 skip="," end=")"he=s-1 contains=python
-
 syn match   pythonComment	"#.*$" contains=pythonTodo,@Spell
 syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
 
