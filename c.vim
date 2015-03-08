@@ -479,7 +479,7 @@ syntax sync minlines=200
 syn match	cCustomParen	"?=(" contains=cParen,cCppParen
 syn match	cCustomClass	"\w\+\s*::" contains=cCustomScope		" class
 syn match	cCustomFunc		"\<\h\w*\s*(\@="  contains=cCustomParen	" function call or function def or macro function
-syn match	cCustomFuncCall	"\<\h\w*\s*(\@=" containedin=cBlock contained " only matches function call
+syn match	cCustomFuncCall	"\<\h\w*\s*(\@=" containedin=cBlock,cCppInIf,cCppOutElse contained " only matches function call
 
 " Defined Macro
 syn match cCustomMacro "\(^\s*\(%:\|#\)\s*\(define\)\_s\+\)\@<=\(\h\w*\>\)"
